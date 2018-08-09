@@ -13,10 +13,11 @@ namespace ScheduleReport
         {
             DataTable dt = Verification.GetAllVerificationData();
             string Date = DateTime.Now.ToString("yyyyMMdd");
+            string FilePath = System.Configuration.ConfigurationManager.AppSettings["FilePath"].ToString();
             string Filename=string.Format("ExportData_{0}.csv", DateTime.Now.ToString("yyyyMMddhhmmss"));
-            string FilePath = @"D:\" + Filename;
-            Utility.CreateCSVFile(dt,FilePath);
-            Console.WriteLine("新增"+FilePath+"完成");
+            string ExportFilePath = FilePath + Filename;
+            Utility.CreateCSVFile(dt, ExportFilePath);
+            Log.WriteLog("新增" + ExportFilePath + "完成");
         }
     }
 }

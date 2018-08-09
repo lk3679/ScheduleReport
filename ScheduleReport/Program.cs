@@ -13,7 +13,7 @@ namespace ScheduleReport
         static void Main(string[] args)
         {
             Report.Add();
-            Console.ReadLine();
+            //Console.ReadLine();
         }      
     }
 }
